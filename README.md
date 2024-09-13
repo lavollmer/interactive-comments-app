@@ -67,7 +67,7 @@ Here are several things I learned throughout this project:
 
 ## Useful resources
 
-- [Jost Google Font](https://fonts.google.com/selection) - Design called for this font in the project.
+- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
 
 ## Author
 
