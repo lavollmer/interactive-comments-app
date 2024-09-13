@@ -15,8 +15,16 @@ This project involved working on
 - [Author](#author)
 
 ## Overview
+Frontend Mentor provided local data.json file, so use that to populate the content on the first load. If you want to take it up a notch, feel free to build this as a full-stack CRUD application!
 
+Your users should be able to:
 
+- Create, Read, Update, and Delete comments and replies
+- Upvote and downvote comments
+- View the optimal layout for the app depending on the device's screen size
+- See hover states for all interactive elements on the page
+- If you're building a purely front-end project, use localStorage to save the current state in the browser that persists when the browser is refreshed
+- Build this project as a full-stack application
 
 ## Screenshots
 
