@@ -44,7 +44,7 @@ Your users should be able to:
 
 I began my project by downloading all the necessary assets from the design folder. After this, I installed Vite, ReactJS and TailwindCSS for the project. Finally, I updated the Tailwind config js file with all the design color assets and Google Font "rubik". 
 
-My project involved many different moving pieces; therefore, I thought it was appropriate to review the design to determine how to approach the project. I used my Notepad to write out the various aspects of the project from functionality, buttons, design, and reusable components. Based on these factors, I started my creating a generic comment card which would be reusable for numerous aspects of the project.
+My project involved many different moving pieces; therefore, I thought it was appropriate to review the design to determine how to approach the project. I used my Notepad to write out the various aspects of the project from functionality, buttons, design, and reusable components. Based on these factors, I started my creating a generic comment card which would be reusable for numerous aspects of the project. The comment card included the avatar image, user's name, timing since published, reply button, comment section and a styled increment decrement button. 
 
 ## Built with
 

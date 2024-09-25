@@ -6,10 +6,10 @@ import Avatar from "../assets/image-amyrobson.png";
 
 const CommentCard = () => {
   return (
-    <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-4">
+    <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2">
       {/* increment and decrement button */}
-      <div className="flex flex-col items-center rounded-lg bg-very-light-gray p-4 m-4">
-        <button className="cursor-pointer">
+      <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
+        <button>
           <img
             src={IconPlus}
             alt="Increment Icon"
@@ -22,8 +22,8 @@ const CommentCard = () => {
         </button>
       </div>
       {/* name, avatar image, reply button and comment */}
-      <div>
-        <div className="flex flex-row items-center justify-between p-4">
+      <div className="flex flex-col space-y-4 p-4">
+        <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center text-md space-x-4">
             <img src={Avatar} alt="Amy Robson Image" className="h-8 w-8" />
             <h1 className="font-bold text-black">amyrobson</h1>
@@ -36,8 +36,8 @@ const CommentCard = () => {
             </button>
           </div>
         </div>
-        <div className="pb-8">
-          <p className="text-lg text-grayish-blue">
+        <div>
+          <p className="text-lg text-grayish-blue font-semi-bold pr-2">
             Impressive! Though it seems the drag feature could be improved. But
             overall it looks incredible. You've nailed the design and the
             responsiveness at various breakpoints works really well.
