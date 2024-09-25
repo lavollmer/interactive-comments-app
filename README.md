@@ -77,6 +77,9 @@ Here are several things I learned throughout this project:
 
 - Family: [Rubik](https://fonts.google.com/specimen/Rubik)
 - ReactJS: [Form](https://react.dev/reference/react-dom/components/form)
+- ReactJS Count: [ReactJS](https://www.quora.com/How-do-you-increase-and-decrease-number-on-button-click-in-React-Native)
+- ReactJS Conver Time: [StackOverflow Timestamp](https://stackoverflow.com/questions/48689876/how-to-convert-timestamp-in-react-js)
+- Moment Package: [Moment Package](https://www.npmjs.com/package/react-moment)
 
 ## Author
 

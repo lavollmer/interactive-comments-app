@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from "moment";
 import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
 import Avatar from "../assets/image-amyrobson.png";
-import { useState } from "react";
 
-const CommentCard = () => {
+const CommentCard = ({created_at}) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
@@ -20,6 +20,10 @@ const CommentCard = () => {
     setLikes(likes - 1);
     console.log(likes);
   };
+
+const timestamp = Date.now();
+const dateTimeAgo = moment(new Date(created_at)).fromNow();
+console.log(dateTimeAgo);
 
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2">
@@ -46,7 +50,7 @@ const CommentCard = () => {
           <div className="flex flex-row items-center justify-center text-md space-x-4">
             <img src={Avatar} alt="Amy Robson Image" className="h-8 w-8" />
             <h1 className="font-bold text-black">amyrobson</h1>
-            <p className="text-grayish-blue">1 day ago</p>
+            <p>{moment(created_at).fromNow()}</p>
           </div>
           <div>
             <button className="flex flex-row items-center font-bold text-moderate-blue text-lg">
