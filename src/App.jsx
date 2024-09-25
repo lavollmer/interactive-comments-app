@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div className="background bg-very-light-gray">
-        <div>
+        <div className="p-10">
           <CommentCard />
         </div>
       </div>
