@@ -1,6 +1,6 @@
 # Interactive Comments App
 
-This project involved working on 
+This project involved working on an interactive comments application. 
 
 ## Table of contents
 
@@ -30,16 +30,11 @@ Your users should be able to:
 
 <p style="font-size:20px;">Desktop Version:</p>
 
-
-
 <p style="font-size:20px;">Desktop Version Dark Mode:</p>
-
 
 <p style="font-size:20px;">Mobile Version:</p>
 
-
-
-
+<p style="font-size:20px;">Lighthouse Report:</p>
 
 ## Links
 
@@ -47,7 +42,9 @@ Your users should be able to:
 
 ## My Process
 
+I began my project by downloading all the necessary assets from the design folder. After this, I installed Vite, ReactJS and TailwindCSS for the project. Finally, I updated the Tailwind config js file with all the design color assets and Google Font "rubik". 
 
+My project involved many different moving pieces; therefore, I thought it was appropriate to review the design to determine how to approach the project. I used my Notepad to write out the various aspects of the project from functionality, buttons, design, and reusable components. Based on these factors, I started my creating a generic comment card which would be reusable for numerous aspects of the project.
 
 ## Built with
 
@@ -64,10 +61,9 @@ Your users should be able to:
 
 ## What I learned
 
-
 Here are several things I learned throughout this project:
 
-1. **_Tailwind CSS Animation_** 
+1. **_Reusable Compenents_** 
 
 ## Continued development
 
