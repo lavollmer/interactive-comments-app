@@ -7,31 +7,31 @@ import { useState } from "react";
 
 const CommentCard = () => {
   //creating a variable to hold the like count
-  const [like, setLike] = useState(0);
+  const [likes, setLikes] = useState(0);
 
-  const increaseLike = () => {
-    setLike(like + 1);
-    console.log(like);
+  const increaseLikes = () => {
+    setLikes(likes + 1);
+    console.log(likes);
   };
 
-  const decreaseLike = () => {
-    setLike(like - 1);
-    console.log(like);
+  const decreaseLikes = () => {
+    setLikes(likes - 1);
+    console.log(likes);
   };
 
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2">
       {/* increment and decrement button */}
       <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
-        <button title="increase" onClick={increaseLike}>
+        <button title="increase" onClick={increaseLikes}>
           <img
             src={IconPlus}
             alt="Increment Icon"
             className="font-bold text-moderate-blue pb-2"
           />
         </button>
-        <p className="text-moderate-blue font-bold text-lg pb-4">2</p>
-        <button title="decrease" onClick={decreaseLike}>
+        <p className="text-moderate-blue font-bold text-lg pb-4">{likes}</p>
+        <button title="decrease" onClick={decreaseLikes}>
           <img src={IconMinus} alt="Decrement Icon" className=" font-bold" />
         </button>
       </div>

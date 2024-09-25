@@ -46,7 +46,9 @@ I began my project by downloading all the necessary assets from the design folde
 
 My project involved many different moving pieces; therefore, I thought it was appropriate to review the design to determine how to approach the project. I used my Notepad to write out the various aspects of the project from functionality, buttons, design, and reusable components. Based on these factors, I started my creating a generic comment card which would be reusable for numerous aspects of the project. The comment card included the avatar image, user's name, timing since published, reply button, comment section and a styled increment decrement button. 
 
-After finishing the reusable comment card, I decided to work on the User Comment section to style it.
+After finishing the reusable comment card, I decided to work on the User Comment section to style it. I started with adding an avatar image, a text box and a button. I decided to use a reusable SEND button for the application therefore creating it's own component. 
+
+During this, I decided to work on the increment and decrement counter (i.e. likes for the comment). I used useState to hold the state of the count, then created two functions to increase and decrease the count while console logging the amount for testing purposes.
 
 ## Built with
 
