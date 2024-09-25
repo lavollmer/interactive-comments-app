@@ -1,12 +1,15 @@
-import './App.css'
+import "./App.css";
+import CommentCard from "./components/CommentCard";
 
 function App() {
-
   return (
     <>
-     <h1>Hello</h1>
+      <div className="background bg-very-light-gray">
+        <h1>Hello</h1>
+        <CommentCard />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
