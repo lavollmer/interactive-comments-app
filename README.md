@@ -67,7 +67,7 @@ During this, I decided to work on the increment and decrement counter (i.e. like
 
 Here are several things I learned throughout this project:
 
-1. **_Reusable Compenents_** 
+1. **_Moment Package_** - In order to get time ago to display for posted comments, I researched and decided to use the ReactJS Moment package. The moment library helps parse, validate and manipulate data. First one must install and import moment into the component.
 
 ## Continued development
 
