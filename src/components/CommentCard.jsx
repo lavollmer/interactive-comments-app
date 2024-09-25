@@ -3,13 +3,27 @@ import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
 import Avatar from "../assets/image-amyrobson.png";
+import { useState } from "react";
 
 const CommentCard = () => {
+  //creating a variable to hold the like count
+  const [like, setLike] = useState(0);
+
+  const increaseLike = () => {
+    setLike(like + 1);
+    console.log(like);
+  };
+
+  const decreaseLike = () => {
+    setLike(like - 1);
+    console.log(like);
+  };
+
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2">
       {/* increment and decrement button */}
       <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
-        <button>
+        <button title="increase" onClick={increaseLike}>
           <img
             src={IconPlus}
             alt="Increment Icon"
@@ -17,7 +31,7 @@ const CommentCard = () => {
           />
         </button>
         <p className="text-moderate-blue font-bold text-lg pb-4">2</p>
-        <button>
+        <button title="decrease" onClick={decreaseLike}>
           <img src={IconMinus} alt="Decrement Icon" className=" font-bold" />
         </button>
       </div>
