@@ -6,10 +6,12 @@ import Avatar from "../assets/image-amyrobson.png";
 
 const CommentCard = () => {
   return (
-    <div className="flex flex-row items-center font-rubik bg-white m-6 rounded-lg">
+    <div className="flex flex-row items-center font-rubik bg-white rounded-lg">
       {/* increment and decrement button */}
-      <div>
-        <p>Up Down</p>
+      <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4">
+        <img src={IconPlus} alt="Increment Icon" className="h-6 w-6 p-4 font-bold text-moderate-blue" />
+        <p className="text-moderate-blue font-bold">2</p>
+        <img src={IconMinus} alt="Decrement Icon" className="h-6 w-6 p-4 font-bold" />
       </div>
       {/* name, avatar image, reply button and comment */}
       <div>
@@ -21,13 +23,17 @@ const CommentCard = () => {
           </div>
           <div>
             <button className="flex flex-row items-center font-bold text-moderate-blue">
-                <img src={IconReply} alt="Reply Icon" />
-                Reply
+              <img src={IconReply} alt="Reply Icon" />
+              Reply
             </button>
           </div>
         </div>
-        <div>
-          <p className="text-md text-grayish-blue p-4">Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+        <div className="p-4">
+          <p className="text-md text-grayish-blue">
+            Impressive! Though it seems the drag feature could be improved. But
+            overall it looks incredible. You've nailed the design and the
+            responsiveness at various breakpoints works really well.
+          </p>
         </div>
       </div>
     </div>
