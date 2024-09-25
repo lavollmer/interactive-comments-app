@@ -46,6 +46,8 @@ I began my project by downloading all the necessary assets from the design folde
 
 My project involved many different moving pieces; therefore, I thought it was appropriate to review the design to determine how to approach the project. I used my Notepad to write out the various aspects of the project from functionality, buttons, design, and reusable components. Based on these factors, I started my creating a generic comment card which would be reusable for numerous aspects of the project. The comment card included the avatar image, user's name, timing since published, reply button, comment section and a styled increment decrement button. 
 
+After finishing the reusable comment card, I decided to work on the User Comment section to style it.
+
 ## Built with
 
 - [React](https://reactjs.org/) - JS library
