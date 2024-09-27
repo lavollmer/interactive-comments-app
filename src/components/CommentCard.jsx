@@ -3,9 +3,8 @@ import moment from "moment";
 import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
-import Avatar from "../assets/image-amyrobson.png";
 
-const CommentCard = ({created_at}) => {
+const CommentCard = ({ created_at, name, AvatarImage, AvatarDesc,comment }) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
@@ -21,9 +20,9 @@ const CommentCard = ({created_at}) => {
     console.log(likes);
   };
 
-const timestamp = Date.now();
-const dateTimeAgo = moment(new Date(created_at)).fromNow();
-console.log(dateTimeAgo);
+  const timestamp = Date.now();
+  const dateTimeAgo = moment(new Date(created_at)).fromNow();
+  console.log(dateTimeAgo);
 
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2">
@@ -48,8 +47,8 @@ console.log(dateTimeAgo);
       <div className="flex flex-col space-y-4 p-4">
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center text-md space-x-4">
-            <img src={Avatar} alt="Amy Robson Image" className="h-8 w-8" />
-            <h1 className="font-bold text-black">amyrobson</h1>
+            <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
+            <h1 className="font-bold text-black">{name}</h1>
             <p>{moment(created_at).fromNow()}</p>
           </div>
           <div>
@@ -61,9 +60,7 @@ console.log(dateTimeAgo);
         </div>
         <div>
           <p className="text-lg text-grayish-blue font-semi-bold pr-2">
-            Impressive! Though it seems the drag feature could be improved. But
-            overall it looks incredible. You've nailed the design and the
-            responsiveness at various breakpoints works really well.
+            {comment}
           </p>
         </div>
       </div>
