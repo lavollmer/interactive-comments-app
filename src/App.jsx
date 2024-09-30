@@ -9,7 +9,7 @@ function App() {
     <>
       <div className="background bg-very-light-gray">
         <div className="p-10">
-          <CommentCard created_at={commentCreatedAt} />
+          <CommentCard created_at={commentCreatedAt} AvatarDesc={AvatarDesc} AvatarImage={Avatar} />
           <UserComment />
         </div>
         <div>

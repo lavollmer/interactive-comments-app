@@ -5,6 +5,7 @@ import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
 
 
+
 const CommentCard = ({ AvatarImage, AvatarDesc, name, comment, created_at }) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
@@ -48,7 +49,7 @@ const CommentCard = ({ AvatarImage, AvatarDesc, name, comment, created_at }) => 
       <div className="flex flex-col space-y-4 p-4">
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center text-md space-x-4">
-            <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
+          <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
             <h1 className="font-bold text-black">{name}</h1>
             <p>{moment(created_at).fromNow()}</p>
           </div>
