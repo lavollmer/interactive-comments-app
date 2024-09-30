@@ -1,15 +1,15 @@
 import React from 'react'
 import Avatar from "../assets/image-amyrobson.png";
-import moment from "moment";
+import CommentCard from "../components/CommentCard.jsx"
 
 const Comment = () => {
   return (
     <div>
-        <Card 
+        <CommentCard
         AvatarImage={Avatar}
-        AvatarDesc ="Bookmark Landing Page"
-        title="Bookmark Landing Page"
-        content="A solo project to create a navigation bar, a hero section, a feature section, a call-to-action section, a footer, and a newsletter signup form."
+        AvatarDesc ="User Avatar"
+        name="amy robson"
+        comment="hello world"
         />
     </div>
   )
