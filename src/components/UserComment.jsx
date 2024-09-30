@@ -19,7 +19,7 @@ const UserComment = () => {
             <img src={Avatar} alt="Amy Robson Image" className="h-8 w-8" />
           </div>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue">
             <input className="text-lg text-grayish-blue font-semi-bold pr-2" name="commentUser"/>
           </div>
