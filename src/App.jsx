@@ -2,6 +2,7 @@ import "./App.css";
 import CommentCard from "./components/CommentCard";
 import UserComment from "./components/UserComment";
 import DeleteButton from "./components/Delete"
+import Avatar from "./assets/image-amyrobson.png";
 
 function App() {
   const commentCreatedAt = new Date();
