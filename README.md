@@ -50,6 +50,8 @@ After finishing the reusable comment card, I decided to work on the User Comment
 
 During this, I decided to work on the increment and decrement counter (i.e. likes for the comment). I used useState to hold the state of the count, then created two functions to increase and decrease the count while console logging the amount for testing purposes.
 
+After this step, I worked on passing the props between each component to display the results.
+
 ## Built with
 
 - [React](https://reactjs.org/) - JS library
