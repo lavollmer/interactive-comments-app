@@ -13,6 +13,10 @@ const CommentCard = ({
 }) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
+  
+  //variable to hold reply and reply box visibility
+  const [replyText, setReplyText] = useState("");
+  const [showReplyBox, setShowReplyBox] = useState(false);
 
   //increasing likes
   const increaseLikes = () => {
@@ -30,10 +34,8 @@ const CommentCard = ({
   const dateTimeAgo = moment(new Date(created_at)).fromNow();
   console.log(dateTimeAgo);
 
-  const [replyText, setReplyText] = useState("");
-  const [showReplyBox, setShowReplyBox] = useState(false);
-
   const handleReplyClick = () => {
+    setReplyText(`@${name} `);
     setShowReplyBox(!showReplyBox);
   };
 
@@ -94,7 +96,7 @@ const CommentCard = ({
               placeholder="Write your reply..."
               className="w-full p-2 border rounded"
             />
-            <button onClick={handleReplySubmit} className="mt-2 p-2 bg-blue-500 text-white rounded">
+            <button onClick={handleReplySubmit} className='flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik'>
               Submit Reply
             </button>
           </div>
