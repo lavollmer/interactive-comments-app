@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
+import IconPlus from "../assets/icon-plus.svg";
+import IconMinus from "../assets/icon-minus.svg";
+import IconReply from "../assets/icon-reply.svg";
 
 const ReplyCard = ({
   AvatarImage,
@@ -8,6 +11,38 @@ const ReplyCard = ({
   replyText,
   createdAt,
 }) => {
+  //creating a variable to hold the like count
+  const [likes, setLikes] = useState(0);
+
+    //variable to hold reply and reply box visibility
+    const [replyText, setReplyText] = useState("");
+    const [showReplyBox, setShowReplyBox] = useState(false);
+    const [replies, setReplies] = useState([]);
+
+  //increasing likes
+  const increaseLikes = () => {
+    setLikes(likes + 1);
+    console.log(likes);
+  };
+
+  //decreasing likes
+  const decreaseLikes = () => {
+    setLikes(likes - 1);
+    console.log(likes);
+  };
+
+  const handleReplyClick = () => {
+    setReplyText(`@${username} `);
+    setShowReplyBox(!showReplyBox);
+  };
+
+  const handleReplySubmit = () => {
+    if (replyText.trim()) {
+      setReplies([...replies, { text: replyText, createdAt: new Date() }]);
+      setReplyText('');
+      setShowReplyBox(false);
+    }
+  };
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2 CommentCard">
       <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">

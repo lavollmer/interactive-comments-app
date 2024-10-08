@@ -37,7 +37,7 @@ const CommentCard = ({
   console.log(dateTimeAgo);
 
   const handleReplyClick = () => {
-    setReplyText(`@${name} `);
+    setReplyText(`@${username} `);
     setShowReplyBox(!showReplyBox);
   };
 
@@ -73,7 +73,7 @@ const CommentCard = ({
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center text-md space-x-4">
             <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
-            <h1 className="font-bold text-black">{name}</h1>
+            <h1 className="font-bold text-black">{username}</h1>
             <p>{moment(created_at).fromNow()}</p>
           </div>
           <div>
