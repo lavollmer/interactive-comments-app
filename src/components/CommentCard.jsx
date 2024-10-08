@@ -3,6 +3,7 @@ import moment from "moment";
 import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
+import ReplyCard from "./ReplyCard";
 
 const CommentCard = ({
   AvatarImage,
@@ -17,6 +18,7 @@ const CommentCard = ({
   //variable to hold reply and reply box visibility
   const [replyText, setReplyText] = useState("");
   const [showReplyBox, setShowReplyBox] = useState(false);
+  const [replies, setReplies] = useState([]);
 
   //increasing likes
   const increaseLikes = () => {
@@ -40,10 +42,11 @@ const CommentCard = ({
   };
 
   const handleReplySubmit = () => {
-    // Implement logic to submit the reply
-    console.log("Reply submitted:", replyText);
-    setReplyText("");
-    setShowReplyBox(false);
+    if (replyText.trim()) {
+      setReplies([...replies, { text: replyText, createdAt: new Date() }]);
+      setReplyText('');
+      setShowReplyBox(false);
+    }
   };
 
   return (
@@ -99,6 +102,20 @@ const CommentCard = ({
             <button onClick={handleReplySubmit} className='flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik'>
               Submit Reply
             </button>
+          </div>
+        )}
+        {replies.length > 0 && (
+          <div className="replies mt-4">
+            {replies.map((reply, index) => (
+              <ReplyCard
+                key={index}
+                AvatarImage={AvatarImage}
+                AvatarDesc={AvatarDesc}
+                username={reply.username}
+                replyText={reply.text}
+                createdAt={reply.createdAt}
+              />
+            ))}
           </div>
         )}
       </div>
