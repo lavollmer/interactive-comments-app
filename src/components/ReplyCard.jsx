@@ -11,11 +11,11 @@ const ReplyCard = ({
   replyText,
   createdAt,
 }) => {
-  //creating a variable to hold the like count
+  // Creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
-  //variable to hold reply and reply box visibility
-  const [replyTextState, setReplyTextState] = useState("");
+  // Variable to hold reply and reply box visibility
+  const [replyTextState, setReplyTextState] = useState(""); // Renamed state variable
   const [showReplyBox, setShowReplyBox] = useState(false);
   const [replies, setReplies] = useState([]);
 
@@ -30,7 +30,7 @@ const ReplyCard = ({
     setLikes(likes - 1);
     console.log(likes);
   };
-
+  
   const handleReplyClick = () => {
     setReplyTextState(`@${username} `);
     setShowReplyBox(!showReplyBox);
@@ -45,7 +45,23 @@ const ReplyCard = ({
   };
 
   return (
-    <div className="flex flex-col items-start font-rubik bg-white rounded-lg p-2 ml-8 mt-2">
+    <div className="flex flex-row items-start justify-center items-center font-rubik bg-white rounded-lg p-2 ml-8 mt-2">
+         <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
+        {/* increase likes with onclick button */}
+        <button title="increase" onClick={increaseLikes}>
+          <img
+            src={IconPlus}
+            alt="Increment Icon"
+            className="font-bold text-moderate-blue pb-2"
+          />
+        </button>
+        {/* displaying the likes based on the state */}
+        <p className="text-moderate-blue font-bold text-lg pb-4">{likes}</p>
+        {/* decreasing likes based onclick */}
+        <button title="decrease" onClick={decreaseLikes}>
+          <img src={IconMinus} alt="Decrement Icon" className=" font-bold" />
+        </button>
+      </div>
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center justify-center text-md space-x-4">
           <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
@@ -58,7 +74,7 @@ const ReplyCard = ({
           {replyText}
         </p>
       </div>
-
+      <div>
         <button
           className="flex flex-row items-center font-bold text-moderate-blue text-lg"
           onClick={handleReplyClick}
@@ -66,7 +82,6 @@ const ReplyCard = ({
           <img src={IconReply} alt="Reply Icon" className="pr-2" />
           Reply
         </button>
-
         {showReplyBox && (
           <div className="reply-box">
             <textarea
@@ -75,30 +90,12 @@ const ReplyCard = ({
               placeholder="Write your reply..."
               className="w-full p-2 border rounded"
             />
-            <button
-              onClick={handleReplySubmit}
-              className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"
-            >
+            <button onClick={handleReplySubmit} className='flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik'>
               Submit Reply
             </button>
           </div>
         )}
-        {replies.length > 0 && (
-          <div className="replies pt-4">
-            {replies.map((reply, index) => (
-              <ReplyCard
-                key={index}
-                AvatarImage={AvatarImage}
-                AvatarDesc={AvatarDesc}
-                username={username}
-                replyText={reply.text}
-                createdAt={reply.createdAt}
-              />
-            ))}
-          </div>
-        )}
       </div>
-    </div>
     </div>
   );
 };
