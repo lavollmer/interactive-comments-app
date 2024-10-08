@@ -4,9 +4,13 @@ import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
 
-
-
-const CommentCard = ({ AvatarImage, AvatarDesc, name, comment, created_at }) => {
+const CommentCard = ({
+  AvatarImage,
+  AvatarDesc,
+  name,
+  comment,
+  created_at,
+}) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
@@ -25,6 +29,20 @@ const CommentCard = ({ AvatarImage, AvatarDesc, name, comment, created_at }) => 
   const timestamp = Date.now();
   const dateTimeAgo = moment(new Date(created_at)).fromNow();
   console.log(dateTimeAgo);
+
+  const [replyText, setReplyText] = useState("");
+  const [showReplyBox, setShowReplyBox] = useState(false);
+
+  const handleReplyClick = () => {
+    setShowReplyBox(!showReplyBox);
+  };
+
+  const handleReplySubmit = () => {
+    // Implement logic to submit the reply
+    console.log("Reply submitted:", replyText);
+    setReplyText("");
+    setShowReplyBox(false);
+  };
 
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2 CommentCard">
@@ -49,12 +67,15 @@ const CommentCard = ({ AvatarImage, AvatarDesc, name, comment, created_at }) => 
       <div className="flex flex-col space-y-4 p-4">
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center text-md space-x-4">
-          <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
+            <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
             <h1 className="font-bold text-black">{name}</h1>
             <p>{moment(created_at).fromNow()}</p>
           </div>
           <div>
-            <button className="flex flex-row items-center font-bold text-moderate-blue text-lg">
+            <button
+              className="flex flex-row items-center font-bold text-moderate-blue text-lg"
+              onClick={handleReplyClick}
+            >
               <img src={IconReply} alt="Reply Icon" className="pr-2" />
               Reply
             </button>
@@ -65,6 +86,19 @@ const CommentCard = ({ AvatarImage, AvatarDesc, name, comment, created_at }) => 
             {comment}
           </p>
         </div>
+        {showReplyBox && (
+          <div className="reply-box">
+            <textarea
+              value={replyText}
+              onChange={(e) => setReplyText(e.target.value)}
+              placeholder="Write your reply..."
+              className="w-full p-2 border rounded"
+            />
+            <button onClick={handleReplySubmit} className="mt-2 p-2 bg-blue-500 text-white rounded">
+              Submit Reply
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
