@@ -50,7 +50,7 @@ After finishing the reusable comment card, I decided to work on the User Comment
 
 During this, I decided to work on the increment and decrement counter (i.e. likes for the comment). I used useState to hold the state of the count, then created two functions to increase and decrease the count while console logging the amount for testing purposes.
 
-After this step, I worked on passing the props between each component to display the results.
+After this step, I worked on passing the props between each component to display the results. I spent a significant amount of time trying to figure out how to display the reply to specific comments. I found that I was able to get the replies to display; however, they would always be nested in the comment card display. 
 
 ## Built with
 
@@ -70,6 +70,7 @@ After this step, I worked on passing the props between each component to display
 Here are several things I learned throughout this project:
 
 1. **_Moment Package_** - In order to get time ago to display for posted comments, I researched and decided to use the ReactJS Moment package. The moment library helps parse, validate and manipulate data. First one must install and import moment into the component.
+2. **_Modal Display_** -
 
 ## Continued development
 
