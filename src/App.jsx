@@ -8,6 +8,7 @@ import AvatarMax from "./assets/image-maxblagun.png";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [replies, setReplies] = useState([]);
   const commentCreatedAt = new Date();
 
   const handleDeleteClick = () => {
@@ -29,6 +30,8 @@ function App() {
               name="amyrobson"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
+              replies={replies}
+              setReplies={setReplies}
             />
           </div>
           <div className="pt-10">
@@ -38,9 +41,25 @@ function App() {
               name="maxblagun"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
+              replies={replies}
+              setReplies={setReplies}
             />
           </div>
-          <UserComment />
+          <div className="replies mt-4">
+            {replies.map((reply, index) => (
+              <ReplyCard
+                key={index}
+                AvatarImage={Avatar}
+                AvatarDesc="User Avatar"
+                username={reply.username}
+                replyText={reply.text}
+                createdAt={reply.createdAt}
+              />
+            ))}
+          </div>
+          <div>
+            <UserComment />
+          </div>
         </div>
         <div>
           <DeleteButton show={showModal} onClose={handleCloseModal}>

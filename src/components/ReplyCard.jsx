@@ -3,6 +3,7 @@ import moment from "moment";
 import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
+import "./Reply.css";
 
 const ReplyCard = ({
   AvatarImage,
@@ -30,7 +31,7 @@ const ReplyCard = ({
     setLikes(likes - 1);
     console.log(likes);
   };
-  
+
   const handleReplyClick = () => {
     setReplyTextState(`@${username} `);
     setShowReplyBox(!showReplyBox);
@@ -46,7 +47,7 @@ const ReplyCard = ({
 
   return (
     <div className="flex flex-row items-start justify-center items-center font-rubik bg-white rounded-lg p-2 ml-8 mt-2">
-         <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
+      <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
         {/* increase likes with onclick button */}
         <button title="increase" onClick={increaseLikes}>
           <img
@@ -90,7 +91,10 @@ const ReplyCard = ({
               placeholder="Write your reply..."
               className="w-full p-2 border rounded"
             />
-            <button onClick={handleReplySubmit} className='flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik'>
+            <button
+              onClick={handleReplySubmit}
+              className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"
+            >
               Submit Reply
             </button>
           </div>
