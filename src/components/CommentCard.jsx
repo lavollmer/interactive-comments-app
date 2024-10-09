@@ -54,7 +54,7 @@ const CommentCard = ({
 
   return (
     <div className="flex flex-row font-rubik">
-      <div className="flex flex-row items-center bg-white rounded-lg p-2 CommentCard">
+      <div className="flex flex-row bg-white rounded-lg p-2 w-full">
         {/* increment and decrement button */}
         <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
           {/* increase likes with onclick button */}
@@ -72,23 +72,22 @@ const CommentCard = ({
             <img src={IconMinus} alt="Decrement Icon" className=" font-bold" />
           </button>
         </div>
-        {/* name, avatar image, reply button and comment */}
-        <div className="flex flex-col space-y-4 p-4">
+
+        <div className="flex flex-col space-y-4 p-4 w-full">
           <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center justify-center text-md space-x-4">
+            <div className="flex items-center space-x-4">
               <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
               <h1 className="font-bold text-black">{name}</h1>
               <p>{moment(created_at).fromNow()}</p>
             </div>
-            <div>
-              <button
-                className="flex flex-row items-center font-bold text-moderate-blue text-lg"
-                onClick={handleReplyClick}
-              >
-                <img src={IconReply} alt="Reply Icon" className="pr-2" />
-                Reply
-              </button>
-            </div>
+
+            <button
+              className="flex flex-row items-center justify-center text-moderate-blue font-bold"
+              onClick={handleReplyClick}
+            >
+              <img src={IconReply} alt="Reply Icon" className="pr-2" />
+              Reply
+            </button>
           </div>
           <div>
             <p className="text-lg text-grayish-blue font-semi-bold pr-2">

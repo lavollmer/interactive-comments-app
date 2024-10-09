@@ -62,7 +62,7 @@ function App() {
               setReplies={setReplies}
             />
           </div>
-          <div className="mt-6">
+          <div className="mt-6 w-full">
           {comments.map((comment, index) => (
               <CommentCard
                 key={index}
@@ -75,7 +75,7 @@ function App() {
                 setReplies={setReplies}
               />
             ))}
-            <div className="replies mt-4">
+            <div className="replies mt-4 w-full">
             {replies.map((reply, index) => (
                 <ReplyCard
                   key={index}
@@ -88,7 +88,7 @@ function App() {
               ))}
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <UserComment onAddComment={handleAddComment} />
           </div>
         </div>
