@@ -52,6 +52,8 @@ During this, I decided to work on the increment and decrement counter (i.e. like
 
 After this step, I worked on passing the props between each component to display the results. I spent a significant amount of time trying to figure out how to display the reply to specific comments. I found that I was able to get the replies to display; however, they would always be nested in the comment card display. 
 
+The next day, I worked on the user comment component. This component is the form submission text box at the bottom of the webpage tied to the end user in which they can provide a comment that appears on the screen. In order to make the user's comment display, I needed to life the state up to the App.jsx and pass a function to the UserComment component to update state and handle submission. Some issues I ran into was where to include the handleSubmit function in the form versus the button as well as prop handling. The handleSubmit button calls the onAddComment prop function in the App.jsx which updates the App component and starts a new render of the page. Additionally, I wanted the form submission to be tied to the end user's name and picture - therefore, I added the user information in the App component and included the user information when adding a new comment. Finally, styling of the new comment had it's own challenges such as being no the full width of the page, the reply button being incorrectly formatted, etc. I played around with this for quite a bit of time to find a scenario in which the formatting was correct.
+
 ## Built with
 
 - [React](https://reactjs.org/) - JS library
@@ -71,6 +73,7 @@ Here are several things I learned throughout this project:
 
 1. **_Moment Package_** - In order to get time ago to display for posted comments, I researched and decided to use the ReactJS Moment package. The moment library helps parse, validate and manipulate data. First one must install and import moment into the component.
 2. **_Modal Display_** -
+3. **_Add New Comment_** - To add a new comment to the webpage, I had to update state within the App.jsx component as well as pass the props function through this. I had originally created a User Comment component which I still used for the form submission; however, the updating and rendering of the page began in the App.jsx.
 
 ## Continued development
 
