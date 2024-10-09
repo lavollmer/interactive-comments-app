@@ -23,33 +23,22 @@ function App() {
   const handleAddComment = (commentText) => {
     setComments([...comments, { text: commentText, createdAt: new Date(), username: "juliusomo" }]);
   };
-
   return (
     <>
       <div className="background bg-very-light-gray">
         <div className="p-10">
-          <div>
+          {comments.map((comment, index) => (
             <CommentCard
+              key={index}
               AvatarImage={Avatar}
               AvatarDesc="User Avatar"
-              name="amyrobson"
-              comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
-              created_at={commentCreatedAt}
+              name={comment.username}
+              comment={comment.text}
+              created_at={comment.createdAt}
               replies={replies}
               setReplies={setReplies}
             />
-          </div>
-          <div className="pt-10">
-            <CommentCard
-              AvatarImage={AvatarMax}
-              AvatarDesc="User Avatar"
-              name="maxblagun"
-              comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
-              created_at={commentCreatedAt}
-              replies={replies}
-              setReplies={setReplies}
-            />
-          </div>
+          ))}
           <div className="replies mt-4">
             {replies.map((reply, index) => (
               <ReplyCard
