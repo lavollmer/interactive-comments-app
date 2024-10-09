@@ -1,8 +1,8 @@
 import React from "react";
 import Avatar from "../assets/image-juliusomo.png";
-import SendButton from "./SendButton";
 
-const UserComment = ({onAddComment}) => {
+
+const UserComment = ({ onAddComment }) => {
   function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
@@ -11,15 +11,10 @@ const UserComment = ({onAddComment}) => {
     event.target.reset(); // Clear the input field after submission
   }
 
-
   return (
-    <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2 mt-10">
-    <div className="flex flex-row justify-evenly space-x-20 p-4">
-      <div className="flex flex-row items-center justify-between">
-        <div className="flex flex-row items-center justify-center text-md space-x-4">
-          <img src={Avatar} alt="User Avatar" className="h-8 w-8" />
-        </div>
-      </div>
+    <div className="flex flex-row font-rubik bg-white rounded-lg p-2 mt-10 w-full">
+      <img src={Avatar} alt="User Avatar" className="h-8 w-8" />
+
       <form onSubmit={handleSubmit}>
         <div className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue">
           <input
@@ -28,12 +23,11 @@ const UserComment = ({onAddComment}) => {
             placeholder="Add a comment..."
           />
         </div>
-        <div>
-          <SendButton type="submit" />
-        </div>
+        <button type="submit" className='flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-8 py-4 text-white font-bold font-rubik'>
+           SEND
+        </button>
       </form>
     </div>
-  </div>
   );
 };
 
