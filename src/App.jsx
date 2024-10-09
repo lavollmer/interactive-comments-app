@@ -5,6 +5,7 @@ import UserComment from "./components/UserComment";
 import DeleteButton from "./components/Delete";
 import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
+import UserAvatar from "./assets/image-juliusomo.png";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -19,11 +20,20 @@ function App() {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const currentUser = {
+    username: "juliusomo",
+    avatar: UserAvatar,
+  };
 
   const handleAddComment = (commentText) => {
     setComments([
       ...comments,
-      { text: commentText, createdAt: new Date(), username: "juliusomo" },
+      {
+        text: commentText,
+        createdAt: new Date(),
+        username: currentUser.username,
+        avatar: currentUser.avatar,
+      },
     ]);
   };
   return (
@@ -54,29 +64,29 @@ function App() {
           </div>
           <div className="mt-6">
           {comments.map((comment, index) => (
-            <CommentCard
-              key={index}
-              AvatarImage={Avatar}
-              AvatarDesc="User Avatar"
-              name={comment.username}
-              comment={comment.text}
-              created_at={comment.createdAt}
-              replies={replies}
-              setReplies={setReplies}
-            />
-          ))}
-          <div className="replies mt-4">
-            {replies.map((reply, index) => (
-              <ReplyCard
+              <CommentCard
                 key={index}
-                AvatarImage={Avatar}
+                AvatarImage={comment.avatar}
                 AvatarDesc="User Avatar"
-                username={reply.username}
-                replyText={reply.text}
-                createdAt={reply.createdAt}
+                name={comment.username}
+                comment={comment.text}
+                created_at={comment.createdAt}
+                replies={replies}
+                setReplies={setReplies}
               />
             ))}
-          </div>
+            <div className="replies mt-4">
+            {replies.map((reply, index) => (
+                <ReplyCard
+                  key={index}
+                  AvatarImage={Avatar}
+                  AvatarDesc="User Avatar"
+                  username={reply.username}
+                  replyText={reply.text}
+                  createdAt={reply.createdAt}
+                />
+              ))}
+            </div>
           </div>
           <div>
             <UserComment onAddComment={handleAddComment} />
