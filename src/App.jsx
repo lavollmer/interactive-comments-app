@@ -8,6 +8,7 @@ import AvatarMax from "./assets/image-maxblagun.png";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [comments, setComments] = useState([]);
   const [replies, setReplies] = useState([]);
   const commentCreatedAt = new Date();
 
@@ -17,6 +18,10 @@ function App() {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleAddComment = (commentText) => {
+    setComments([...comments, { text: commentText, createdAt: new Date(), username: "juliusomo" }]);
   };
 
   return (
@@ -58,7 +63,7 @@ function App() {
             ))}
           </div>
           <div>
-            <UserComment />
+            <UserComment onAddComment={handleAddComment} />
           </div>
         </div>
         <div>

@@ -2,14 +2,14 @@ import React from "react";
 import Avatar from "../assets/image-juliusomo.png";
 import SendButton from "./SendButton";
 
-const UserComment = () => {
-    function handleSubmit(event) {
-        event.preventDefault();
-        const data = new FormData(event.target);
-        const value = data.get("commentUser");
-        console.log(value);
-        };
-        
+const UserComment = ({onAddComment}) => {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const value = data.get("commentUser");
+    console.log(value);
+  }
+
   return (
     <div className="flex flex-row items-center font-rubik bg-white rounded-lg p-2 mt-10">
       {/* name, avatar image, reply button and comment */}
@@ -21,13 +21,16 @@ const UserComment = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue">
-            <input className="text-lg text-grayish-blue font-semi-bold pr-2" name="commentUser"/>
+            <input
+              className="text-lg text-grayish-blue font-semi-bold pr-2"
+              name="commentUser"
+            />
+          </div>
+
+          <div>
+            <SendButton onClick={handleSubmit} />
           </div>
         </form>
-        {/* reusable button SEND */}
-        <div>
-          <SendButton />
-        </div>
       </div>
     </div>
   );
