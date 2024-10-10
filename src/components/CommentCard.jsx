@@ -4,6 +4,7 @@ import IconPlus from "../assets/icon-plus.svg";
 import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
 import ReplyCard from "./ReplyCard";
+import IconDelete from "../assets/icon-delete.svg";
 
 const CommentCard = ({
   AvatarImage,
@@ -11,6 +12,10 @@ const CommentCard = ({
   name,
   comment,
   created_at,
+  replies,
+  setReplies,
+  currentUser,
+  onDelete,
 }) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
@@ -18,7 +23,7 @@ const CommentCard = ({
   //variable to hold reply and reply box visibility
   const [replyText, setReplyText] = useState("");
   const [showReplyBox, setShowReplyBox] = useState(false);
-  const [replies, setReplies] = useState([]);
+
 
   //increasing likes
   const increaseLikes = () => {
@@ -37,7 +42,7 @@ const CommentCard = ({
   console.log(dateTimeAgo);
 
   const handleReplyClick = () => {
-    setReplyText(`@${name} `); // Prepend the username to the reply text
+    setReplyText(`@${name} `);
     setShowReplyBox(true);
   };
 
@@ -80,14 +85,21 @@ const CommentCard = ({
               <h1 className="font-bold text-black">{name}</h1>
               <p>{moment(created_at).fromNow()}</p>
             </div>
-
-            <button
-              className="flex flex-row items-center justify-center text-moderate-blue font-bold"
-              onClick={handleReplyClick}
-            >
-              <img src={IconReply} alt="Reply Icon" className="pr-2" />
-              Reply
-            </button>
+            <div className="flex items-center space-x-4">
+              {currentUser.username === name && (
+                <button className="text-red-500 font-bold" onClick={onDelete}>
+                  <img src={IconDelete} alt="Delete Icon" className="h-4 w-4" />
+                  Delete
+                </button>
+              )}
+              <button
+                className="flex flex-row items-center justify-center text-moderate-blue font-bold"
+                onClick={handleReplyClick}
+              >
+                <img src={IconReply} alt="Reply Icon" className="pr-2" />
+                Reply
+              </button>
+            </div>
           </div>
           <div>
             <p className="text-lg text-grayish-blue font-semi-bold pr-2">

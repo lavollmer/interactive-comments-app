@@ -6,6 +6,7 @@ import DeleteButton from "./components/Delete";
 import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
 import UserAvatar from "./assets/image-juliusomo.png";
+import IconDelete from "../src/assets/icon-delete.svg";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +37,11 @@ function App() {
       },
     ]);
   };
+
+  const handleDeleteComment = (index) => {
+    setComments(comments.filter((_, i) => i !== index));
+  };
+
   return (
     <>
       <div className="background bg-very-light-gray p-6">
@@ -49,6 +55,7 @@ function App() {
               created_at={commentCreatedAt}
               replies={replies}
               setReplies={setReplies}
+              currentUser={currentUser}
             />
           </div>
           <div className="pt-8">
@@ -60,6 +67,7 @@ function App() {
               created_at={commentCreatedAt}
               replies={replies}
               setReplies={setReplies}
+              currentUser={currentUser}
             />
           </div>
           <div className="pt-8 ">
@@ -73,6 +81,8 @@ function App() {
                 created_at={comment.createdAt}
                 replies={replies}
                 setReplies={setReplies}
+                currentUser={currentUser}
+                onDelete={() => handleDeleteComment(index)}
               />
             ))}
             <div className="replies mt-4">
