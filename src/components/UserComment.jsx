@@ -11,7 +11,7 @@ const UserComment = ({ onAddComment }) => {
   }
 
   return (
-    <div className="flex flex-row  items-center space-x-10 font-rubik bg-white rounded-lg p-6 mt-10 w-full">
+    <div className="flex flex-row  items-center space-x-10 font-rubik bg-white rounded-lg p-6 mt-10 w-full mb-10">
       <img src={Avatar} alt="User Avatar" className="h-8 w-8" />
 
       <form onSubmit={handleSubmit} className="flex flex-row items-center space-x-4">

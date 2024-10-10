@@ -38,8 +38,8 @@ function App() {
   };
   return (
     <>
-      <div className="background bg-very-light-gray">
-        <div className="p-10">
+      <div className="background bg-very-light-gray p-6">
+        <div className="pt-8">
           <div>
             <CommentCard
               AvatarImage={Avatar}
@@ -51,7 +51,7 @@ function App() {
               setReplies={setReplies}
             />
           </div>
-          <div className="pt-10">
+          <div className="pt-8 w-full">
             <CommentCard
               AvatarImage={AvatarMax}
               AvatarDesc="User Avatar"
@@ -62,7 +62,7 @@ function App() {
               setReplies={setReplies}
             />
           </div>
-          <div className="mt-6 w-full">
+          <div className="pt-8 w-full">
           {comments.map((comment, index) => (
               <CommentCard
                 key={index}
