@@ -89,7 +89,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="pt-8">
+        <div className="flex flex-col pt-8 p-6">
           <UserComment onAddComment={handleAddComment} />
         </div>
 
