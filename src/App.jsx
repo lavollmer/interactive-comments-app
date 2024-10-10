@@ -39,7 +39,7 @@ function App() {
   return (
     <>
       <div className="background bg-very-light-gray p-6">
-        <div className="pt-8">
+        <div className="flex flex-col items-center justify-center pt-8">
           <div>
             <CommentCard
               AvatarImage={Avatar}
@@ -51,7 +51,7 @@ function App() {
               setReplies={setReplies}
             />
           </div>
-          <div className="pt-8 w-full">
+          <div className="pt-8">
             <CommentCard
               AvatarImage={AvatarMax}
               AvatarDesc="User Avatar"
@@ -62,8 +62,8 @@ function App() {
               setReplies={setReplies}
             />
           </div>
-          <div className="pt-8 w-full">
-          {comments.map((comment, index) => (
+          <div className="pt-8 ">
+            {comments.map((comment, index) => (
               <CommentCard
                 key={index}
                 AvatarImage={comment.avatar}
@@ -75,8 +75,8 @@ function App() {
                 setReplies={setReplies}
               />
             ))}
-            <div className="replies mt-4 w-full">
-            {replies.map((reply, index) => (
+            <div className="replies mt-4">
+              {replies.map((reply, index) => (
                 <ReplyCard
                   key={index}
                   AvatarImage={Avatar}
@@ -88,10 +88,11 @@ function App() {
               ))}
             </div>
           </div>
-          <div className="w-full">
-            <UserComment onAddComment={handleAddComment} />
-          </div>
         </div>
+        <div className="pt-8">
+          <UserComment onAddComment={handleAddComment} />
+        </div>
+
         <div>
           <DeleteButton show={showModal} onClose={handleCloseModal}>
             <h2>Are you sure you want to delete this comment?</h2>
