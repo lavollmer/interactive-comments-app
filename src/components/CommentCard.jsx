@@ -16,13 +16,15 @@ const CommentCard = ({
   setReplies,
   currentUser,
   onDelete,
+  onReplyClick,
+  replyBoxVisible,
 }) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
   //variable to hold reply and reply box visibility
   const [replyText, setReplyText] = useState("");
-  const [showReplyBox, setShowReplyBox] = useState(false);
+  const [showReplyBox, setShowReplyBox] = useState(null);
 
 
   //increasing likes
@@ -53,7 +55,7 @@ const CommentCard = ({
         { text: replyText, createdAt: new Date(), username: name },
       ]);
       setReplyText("");
-      setShowReplyBox(false);
+      onReplyClick(null);
     }
   };
 

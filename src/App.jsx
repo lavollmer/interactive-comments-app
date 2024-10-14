@@ -7,11 +7,13 @@ import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
 import UserAvatar from "./assets/image-juliusomo.png";
 import IconDelete from "../src/assets/icon-delete.svg";
+import ReplyCard from "./components/ReplyCard";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [comments, setComments] = useState([]);
   const [replies, setReplies] = useState([]);
+  const [replyBoxVisible, setReplyBoxVisible] = useState(null);
   const commentCreatedAt = new Date();
 
   const handleDeleteClick = () => {
@@ -56,6 +58,8 @@ function App() {
               replies={replies}
               setReplies={setReplies}
               currentUser={currentUser}
+              onReplyClick={() => setReplyBoxVisible(0)}
+              replyBoxVisible={replyBoxVisible === 0}
             />
           </div>
           <div className="pt-8">
@@ -68,6 +72,8 @@ function App() {
               replies={replies}
               setReplies={setReplies}
               currentUser={currentUser}
+              onReplyClick={() => setReplyBoxVisible(0)}
+              replyBoxVisible={replyBoxVisible === 0}
             />
           </div>
           <div className="pt-8 ">
@@ -83,6 +89,8 @@ function App() {
                 setReplies={setReplies}
                 currentUser={currentUser}
                 onDelete={() => handleDeleteComment(index)}
+                onReplyClick={() => setReplyBoxVisible(index + 1)}
+                replyBoxVisible={replyBoxVisible === index + 1}
               />
             ))}
             <div className="replies mt-4">
