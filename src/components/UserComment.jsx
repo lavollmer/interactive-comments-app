@@ -11,15 +11,17 @@ const UserComment = ({ onAddComment }) => {
   }
 
   return (
-    // <div className="flex flex-row  items-center space-x-10 font-rubik bg-white rounded-lg p-6 mt-10 w-full mb-10">
-    <div className="flex flex-row bg-white rounded-lg p-6 w-full font-rubik space-x-4">
+    <div className="flex flex-row bg-white rounded-lg w-full font-rubik p-6">
+      <div>
         <img src={Avatar} alt="User Avatar" className="h-8 w-8" />
+      </div>
+      <div>
         <form
           onSubmit={handleSubmit}
           className="flex flex-row items-center space-x-4 w-full"
         >
           <input
-            className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue text-lg text-grayish-blue font-semi-bold w-100 h-40 p-4"
+            className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue text-lg text-grayish-blue font-semi-bold w-full h-30 p-4"
             name="commentUser"
             placeholder="Add a comment..."
           />
@@ -31,6 +33,7 @@ const UserComment = ({ onAddComment }) => {
           </button>
         </form>
       </div>
+    </div>
   );
 };
 
