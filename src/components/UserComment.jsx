@@ -11,11 +11,11 @@ const UserComment = ({ onAddComment }) => {
   }
 
   return (
-    <div className="flex flex-row bg-white rounded-lg w-full font-rubik p-6">
-      <div>
+    <div className="flex flex-row bg-white rounded-lg w-full font-rubik p-6 space-x-4">
+      <div className="flex-shrink-0">
         <img src={Avatar} alt="User Avatar" className="h-8 w-8" />
       </div>
-      <div>
+      <div className="flex-grow">
         <form
           onSubmit={handleSubmit}
           className="flex flex-row items-center space-x-4 w-full"
