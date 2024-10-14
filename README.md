@@ -56,6 +56,8 @@ The next day, I worked on the user comment component. This component is the form
 
 After working through some formatting issues, I decided to work on the delete button functionality of the end user's specific comments if wanted. To begin, I needed the delete function to only be avilable for the end user, juliusomo, for his posted comments therefore I needed to render the delete button based on the username of the comment. In App.jsx, I passed the current user information to the CommentCard component and conditionally rendered the delete button in the Comment Card component based on the username. One error I worked through involved an error messaged involving the currentUser prop being undefined in the CommentCard component. I determined the currentUser prop was passed correctly from the parent component and added a default props to handle cases where it may be undefined.
 
+The final pieces of the project involved styling it based on the design assets. I started with working on the user comment section as the input box would not stretch the width of the screen. I played around with different CSS styling - checking the App.jsx container, the User Comment component container and then each individual div. I learned that the parent container needed to be set at w-full, while the containers of the avatar image and form needed to set to flex-grow and flex-shrink-0 in order for the form to grow as needed.
+
 ## Built with
 
 - [React](https://reactjs.org/) - JS library
@@ -76,6 +78,7 @@ Here are several things I learned throughout this project:
 1. **_Moment Package_** - In order to get time ago to display for posted comments, I researched and decided to use the ReactJS Moment package. The moment library helps parse, validate and manipulate data. First one must install and import moment into the component.
 2. **_Modal Display_** -
 3. **_Add New Comment_** - To add a new comment to the webpage, I had to update state within the App.jsx component as well as pass the props function through this. I had originally created a User Comment component which I still used for the form submission; however, the updating and rendering of the page began in the App.jsx.
+4. **_Flex Grow and Shrink_** - I learned about the TailwindCSS stylings of flex grow and shrink. Flex-grow sets a container to grow and take upt he remaining space. The flex-shrink is set to not shrink a container and ensures it maintains it's size.
 
 ## Continued development
 
