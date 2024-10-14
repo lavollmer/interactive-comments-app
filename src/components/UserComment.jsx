@@ -21,9 +21,10 @@ const UserComment = ({ onAddComment }) => {
           className="flex flex-row items-center space-x-4 w-full"
         >
           <input
-            className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue text-lg text-grayish-blue font-semi-bold w-full h-30 p-4"
+            className="outline outline-very-light-gray rounded-lg focus:outline-2 focus:border-moderate-blue text-lg text-grayish-blue font-semi-bold w-full h-40 p-4 align-top"
             name="commentUser"
             placeholder="Add a comment..."
+            style={{ lineHeight: "1.5" }}
           />
           <button
             type="submit"
