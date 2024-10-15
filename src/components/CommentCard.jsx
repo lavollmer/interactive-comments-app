@@ -17,14 +17,14 @@ const CommentCard = ({
   currentUser,
   onDelete,
   onReplyClick,
-  replyBoxVisible,
+  onAddReply,
 }) => {
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
   //variable to hold reply and reply box visibility
   const [replyText, setReplyText] = useState("");
-  const [showReplyBox, setShowReplyBox] = useState(null);
+  // const [showReplyBox, setShowReplyBox] = useState(null);
 
 
   //increasing likes
@@ -50,12 +50,8 @@ const CommentCard = ({
 
   const handleReplySubmit = () => {
     if (replyText.trim()) {
-      setReplies([
-        ...replies,
-        { text: replyText, createdAt: new Date(), username: name },
-      ]);
-      setReplyText("");
-      onReplyClick(null);
+      onAddReply(replyText);
+      setReplyText(""); 
     }
   };
 
@@ -108,7 +104,7 @@ const CommentCard = ({
               {comment}
             </p>
           </div>
-          {showReplyBox && (
+          {replyBoxVisible && (
             <div className="reply-box">
               <textarea
                 value={replyText}
@@ -120,7 +116,7 @@ const CommentCard = ({
                 onClick={handleReplySubmit}
                 className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"
               >
-                Submit Reply
+                Reply
               </button>
             </div>
           )}
@@ -129,8 +125,8 @@ const CommentCard = ({
               {replies.map((reply, index) => (
                 <ReplyCard
                   key={index}
-                  AvatarImage={AvatarImage}
-                  AvatarDesc={AvatarDesc}
+                  AvatarImage={reply.avatar}
+                  AvatarDesc="User Avatar"
                   username={reply.username}
                   replyText={reply.text}
                   createdAt={reply.createdAt}
