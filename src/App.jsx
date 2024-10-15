@@ -74,12 +74,11 @@ function App() {
               name="amyrobson"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
-              replies={replies}
-              setReplies={setReplies}
-              currentUser={currentUser}
-              onReplyClick={() => handleReplyClick(0)}
-              replyBoxVisible={replyBoxVisible === 0}
-              onAddReply = {(replyText) => handleAddReply(0, replyText)}
+              replies={[]} // Initialize replies array
+              currentUser={currentUser} // Pass current user information
+              onReplyClick={() => handleReplyClick(0)} // Pass reply handler
+              replyBoxVisible={replyBoxVisible === 0} // Pass reply box visibility
+              onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
             />
           </div>
           <div className="pt-8">
@@ -89,12 +88,11 @@ function App() {
               name="maxblagun"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
-              replies={replies}
-              setReplies={setReplies}
-              currentUser={currentUser}
-              onReplyClick={() => handleReplyClick(0)}
-              replyBoxVisible={replyBoxVisible === 0}
-              onAddReply = {(replyText) => handleAddReply(0, replyText)}
+              replies={[]} // Initialize replies array
+              currentUser={currentUser} // Pass current user information
+              onReplyClick={() => handleReplyClick(0)} // Pass reply handler
+              replyBoxVisible={replyBoxVisible === 0} // Pass reply box visibility
+              onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
             />
           </div>
           <div className="pt-8 ">
