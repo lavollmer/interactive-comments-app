@@ -12,7 +12,7 @@ import ReplyCard from "./components/ReplyCard";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [comments, setComments] = useState([]);
-  const [replies, setReplies] = useState([]);
+
   const [replyBoxVisible, setReplyBoxVisible] = useState(null);
   const commentCreatedAt = new Date();
 
@@ -23,6 +23,11 @@ function App() {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  const handleReplyClick = () => {
+    setReplyBoxVisible(index);
+  }
+
   const currentUser = {
     username: "juliusomo",
     avatar: UserAvatar,
@@ -36,12 +41,26 @@ function App() {
         createdAt: new Date(),
         username: currentUser.username,
         avatar: currentUser.avatar,
+        replies: [],
       },
     ]);
   };
 
   const handleDeleteComment = (index) => {
     setComments(comments.filter((_, i) => i !== index));
+  };
+
+
+  const handleAddReply = (commentIndex, replyText) => {
+    const newComments = [...comments];
+    newComments[commentIndex].replies.push({
+      text: replyText,
+      createdAt: new Date(),
+      username: currentUser.username,
+      avatar: currentUser.avatar,
+    });
+    setComments(newComments);
+    setReplyBoxVisible(null); 
   };
 
   return (
@@ -58,8 +77,9 @@ function App() {
               replies={replies}
               setReplies={setReplies}
               currentUser={currentUser}
-              onReplyClick={() => setReplyBoxVisible(0)}
+              onReplyClick={() => handleReplyClick(0)}
               replyBoxVisible={replyBoxVisible === 0}
+              onAddReply = {(replyText) => handleAddReply(0, replyText)}
             />
           </div>
           <div className="pt-8">
@@ -72,8 +92,9 @@ function App() {
               replies={replies}
               setReplies={setReplies}
               currentUser={currentUser}
-              onReplyClick={() => setReplyBoxVisible(0)}
+              onReplyClick={() => handleReplyClick(0)}
               replyBoxVisible={replyBoxVisible === 0}
+              onAddReply = {(replyText) => handleAddReply(0, replyText)}
             />
           </div>
           <div className="pt-8 ">
@@ -89,11 +110,12 @@ function App() {
                 setReplies={setReplies}
                 currentUser={currentUser}
                 onDelete={() => handleDeleteComment(index)}
-                onReplyClick={() => setReplyBoxVisible(index + 1)}
+                onReplyClick={() => handleReplyClick(index + 1)}
                 replyBoxVisible={replyBoxVisible === index + 1}
+                onAddReply = {(replyText) => handleAddReply(index + 1, replyText)}
               />
             ))}
-            <div className="replies mt-4">
+            {/* <div className="replies mt-4">
               {replies.map((reply, index) => (
                 <ReplyCard
                   key={index}
@@ -104,7 +126,7 @@ function App() {
                   createdAt={reply.createdAt}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex flex-col pt-8 p-6 w-full">
