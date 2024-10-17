@@ -82,7 +82,7 @@ Here are several things I learned throughout this project:
 
 ## Continued development
 
-
+I will continue to work on JavaScript fundamentals, TailwindCSS styling and much more.
 
 ## Useful resources
 
