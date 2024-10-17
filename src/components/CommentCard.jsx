@@ -51,7 +51,7 @@ const CommentCard = ({
     if (replyText.trim()) {
       onAddReply(replyText);
       setReplyText("");
-      // setShowReplyBox(false);
+      setShowReplyBox(false);
     }
   };
 
