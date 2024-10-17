@@ -51,9 +51,11 @@ const CommentCard = ({
     if (replyText.trim()) {
       onAddReply(replyText);
       setReplyText("");
-      setShowReplyBox(false);
+      // setShowReplyBox(false);
     }
   };
+
+  console.log(replies);
 
   return (
     <div className="flex flex-row font-rubik pt-8">

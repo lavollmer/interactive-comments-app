@@ -12,7 +12,6 @@ import ReplyCard from "./components/ReplyCard";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [comments, setComments] = useState([]);
-
   const [replyBoxVisible, setReplyBoxVisible] = useState(null);
   const commentCreatedAt = new Date();
 
@@ -74,11 +73,11 @@ function App() {
               name="amyrobson"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
-              replies={[]} // Initialize replies array
-              currentUser={currentUser} // Pass current user information
-              onReplyClick={() => handleReplyClick(0)} // Pass reply handler
-              replyBoxVisible={replyBoxVisible === 0} // Pass reply box visibility
-              onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
+              replies={[]} 
+              currentUser={currentUser}
+              onReplyClick={() => handleReplyClick(0)} 
+              replyBoxVisible={replyBoxVisible === 0} 
+              onAddReply={(replyText) => handleAddReply(0, replyText)} 
             />
           </div>
           <div className="pt-8">
@@ -104,8 +103,8 @@ function App() {
                 name={comment.username}
                 comment={comment.text}
                 created_at={comment.createdAt}
-                replies={replies}
-                setReplies={setReplies}
+                replies={comment.replies}
+                setReplies={comment.setReplies}
                 currentUser={currentUser}
                 onDelete={() => handleDeleteComment(index)}
                 onReplyClick={() => handleReplyClick(index + 1)}
