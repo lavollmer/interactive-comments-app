@@ -52,6 +52,9 @@ function App() {
 
   const handleAddReply = (commentIndex, replyText) => {
     const newComments = [...comments];
+    if (!newComments[commentIndex].replies) {
+      newComments[commentIndex].replies = []; // Ensure replies array is initialized
+    }
     newComments[commentIndex].replies.push({
       text: replyText,
       createdAt: new Date(),
@@ -59,9 +62,8 @@ function App() {
       avatar: currentUser.avatar,
     });
     setComments(newComments);
-    setReplyBoxVisible(null); 
+    setReplyBoxVisible(null); // Hide reply box after submitting
   };
-
   return (
     <>
       <div className="background bg-very-light-gray p-6">
@@ -103,7 +105,7 @@ function App() {
               name={comment.username}
               comment={comment.text}
               created_at={comment.createdAt}
-              replies={comment.replies} // Pass replies array
+              replies={comment.replies || []} 
               currentUser={currentUser} // Pass current user information
               onDelete={() => handleDeleteComment(index)} // Pass delete handler
               onReplyClick={() => handleReplyClick(index + 1)} // Pass reply handler
