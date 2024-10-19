@@ -106,7 +106,7 @@ const CommentCard = ({
               {comment}
             </p>
           </div>
-          {replyBoxVisible && (
+          {showReplyBox && (
             <div className="reply-box">
               <textarea
                 value={replyText}
@@ -122,7 +122,7 @@ const CommentCard = ({
               </button>
             </div>
           )}
-          {replies.length > 0 && (
+          {replies.map((reply,index)) && (
             <div className="replies mt-4">
               {replies.map((reply, index) => (
                 <ReplyCard
