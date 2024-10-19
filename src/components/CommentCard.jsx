@@ -122,20 +122,18 @@ const CommentCard = ({
               </button>
             </div>
           )}
-          {replies.map((reply,index)) && (
-            <div className="replies mt-4">
-              {replies.map((reply, index) => (
-                <ReplyCard
-                  key={index}
-                  AvatarImage={reply.avatar}
-                  AvatarDesc="User Avatar"
-                  username={reply.username}
-                  replyText={reply.text}
-                  createdAt={reply.createdAt}
-                />
-              ))}
+          <div className="replies mt-4">
+            {replies.length > 0 && replies.map((reply, index) => (
+              <ReplyCard
+                key={index}
+                AvatarImage={reply.avatar}
+                AvatarDesc="User Avatar"
+                username={reply.username}
+                replyText={reply.text}
+                createdAt={reply.createdAt}
+              />
+            ))}
             </div>
-          )}
         </div>
       </div>
     </div>
