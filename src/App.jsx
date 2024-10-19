@@ -12,7 +12,7 @@ import ReplyCard from "./components/ReplyCard";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [comments, setComments] = useState([]);
-  const [replyBoxVisible, setReplyBoxVisible] = useState(null);
+  const [replyBoxVisible, setReplyBoxVisible] = useState(null); 
   const commentCreatedAt = new Date();
 
   const handleDeleteClick = () => {
@@ -73,20 +73,6 @@ function App() {
               name="amyrobson"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
-              replies={[]} 
-              currentUser={currentUser}
-              onReplyClick={() => handleReplyClick(0)} 
-              replyBoxVisible={replyBoxVisible === 0} 
-              onAddReply={(replyText) => handleAddReply(0, replyText)} 
-            />
-          </div>
-          <div className="pt-8">
-            <CommentCard
-              AvatarImage={AvatarMax}
-              AvatarDesc="User Avatar"
-              name="maxblagun"
-              comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
-              created_at={commentCreatedAt}
               replies={[]} // Initialize replies array
               currentUser={currentUser} // Pass current user information
               onReplyClick={() => handleReplyClick(0)} // Pass reply handler
@@ -94,22 +80,35 @@ function App() {
               onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
             />
           </div>
+          <div className="pt-8">
+            <CommentCard
+             AvatarImage={Avatar}
+             AvatarDesc="User Avatar"
+             name="amyrobson"
+             comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
+             created_at={commentCreatedAt}
+             replies={[]} // Initialize replies array
+             currentUser={currentUser} // Pass current user information
+             onReplyClick={() => handleReplyClick(0)} // Pass reply handler
+             replyBoxVisible={replyBoxVisible === 0} // Pass reply box visibility
+             onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
+            />
+          </div>
           <div className="pt-8 ">
             {comments.map((comment, index) => (
               <CommentCard
-                key={index}
-                AvatarImage={comment.avatar}
-                AvatarDesc="User Avatar"
-                name={comment.username}
-                comment={comment.text}
-                created_at={comment.createdAt}
-                replies={comment.replies}
-                setReplies={comment.setReplies}
-                currentUser={currentUser}
-                onDelete={() => handleDeleteComment(index)}
-                onReplyClick={() => handleReplyClick(index + 1)}
-                replyBoxVisible={replyBoxVisible === index + 1}
-                onAddReply = {(replyText) => handleAddReply(index + 1, replyText)}
+              key={index}
+              AvatarImage={comment.avatar}
+              AvatarDesc="User Avatar"
+              name={comment.username}
+              comment={comment.text}
+              created_at={comment.createdAt}
+              replies={comment.replies} // Pass replies array
+              currentUser={currentUser} // Pass current user information
+              onDelete={() => handleDeleteComment(index)} // Pass delete handler
+              onReplyClick={() => handleReplyClick(index + 1)} // Pass reply handler
+              replyBoxVisible={replyBoxVisible === index + 1} // Pass reply box visibility
+              onAddReply={(replyText) => handleAddReply(index + 1, replyText)} // Pass add reply handler
               />
             ))}
             {/* <div className="replies mt-4">
