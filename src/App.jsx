@@ -108,9 +108,9 @@ function App() {
               replies={comment.replies || []} 
               currentUser={currentUser} // Pass current user information
               onDelete={() => handleDeleteComment(index)} // Pass delete handler
-              onReplyClick={() => handleReplyClick(index + 1)} // Pass reply handler
-              replyBoxVisible={replyBoxVisible === index + 1} // Pass reply box visibility
-              onAddReply={(replyText) => handleAddReply(index + 1, replyText)} // Pass add reply handler
+              onReplyClick={() => handleReplyClick(index)} // Pass reply handler
+              replyBoxVisible={replyBoxVisible === index} // Pass reply box visibility
+              onAddReply={(replyText) => handleAddReply(index, replyText)} // Pass add reply handler
               />
             ))}
             {/* <div className="replies mt-4">
