@@ -51,10 +51,13 @@ function App() {
 
 
   const handleAddReply = (commentIndex, replyText) => {
+    //creating a new variable newComments with a copy of the comments array
     const newComments = [...comments];
+    // if the commentIndex in newComments object does not have replies, create a new empty array
     if (!newComments[commentIndex].replies) {
-      newComments[commentIndex].replies = []; // Ensure replies array is initialized
+      newComments[commentIndex].replies = []; 
     }
+    //when a commentIndex and replyText are passed as arguments to the function we push on the new comment with the information below
     newComments[commentIndex].replies.push({
       text: replyText,
       createdAt: new Date(),
@@ -68,7 +71,7 @@ function App() {
     <>
       <div className="background bg-very-light-gray p-6">
         <div className="flex flex-col items-center justify-center pt-8">
-          <div>
+        <div>
             <CommentCard
               AvatarImage={Avatar}
               AvatarDesc="User Avatar"
@@ -83,50 +86,24 @@ function App() {
             />
           </div>
           <div className="pt-8">
-            <CommentCard
-             AvatarImage={Avatar}
-             AvatarDesc="User Avatar"
-             name="amyrobson"
-             comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
-             created_at={commentCreatedAt}
-             replies={[]} // Initialize replies array
-             currentUser={currentUser} // Pass current user information
-             onReplyClick={() => handleReplyClick(0)} // Pass reply handler
-             replyBoxVisible={replyBoxVisible === 0} // Pass reply box visibility
-             onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
-            />
-          </div>
-          <div className="pt-8 ">
             {comments.map((comment, index) => (
               <CommentCard
-              key={index}
-              AvatarImage={comment.avatar}
-              AvatarDesc="User Avatar"
-              name={comment.username}
-              comment={comment.text}
-              created_at={comment.createdAt}
-              replies={comment.replies || []} 
-              currentUser={currentUser} // Pass current user information
-              onDelete={() => handleDeleteComment(index)} // Pass delete handler
-              onReplyClick={() => handleReplyClick(index)} // Pass reply handler
-              replyBoxVisible={replyBoxVisible === index} // Pass reply box visibility
-              onAddReply={(replyText) => handleAddReply(index, replyText)} // Pass add reply handler
+                key={index}
+                AvatarImage={comment.avatar}
+                AvatarDesc="User Avatar"
+                name={comment.username}
+                comment={comment.text}
+                created_at={comment.createdAt}
+                replies={comment.replies || []} // Pass replies array, ensure it's not undefined
+                currentUser={currentUser} // Pass current user information
+                onDelete={() => handleDeleteComment(index)} // Pass delete handler
+                onReplyClick={() => handleReplyClick(index)} // Pass reply handler
+                replyBoxVisible={replyBoxVisible === index} // Pass reply box visibility
+                onAddReply={(replyText) => handleAddReply(index, replyText)} // Pass add reply handler
               />
             ))}
-            {/* <div className="replies mt-4">
-              {replies.map((reply, index) => (
-                <ReplyCard
-                  key={index}
-                  AvatarImage={Avatar}
-                  AvatarDesc="User Avatar"
-                  username={reply.username}
-                  replyText={reply.text}
-                  createdAt={reply.createdAt}
-                />
-              ))}
-            </div> */}
           </div>
-        </div>
+          </div>
         <div className="flex flex-col pt-8 p-6 w-full">
           <UserComment onAddComment={handleAddComment} />
         </div>
@@ -144,7 +121,7 @@ function App() {
             </button>
           </DeleteButton>
         </div>
-      </div>
+        </div>
     </>
   );
 }

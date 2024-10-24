@@ -38,9 +38,9 @@ const CommentCard = ({
     console.log(likes);
   };
 
-  const timestamp = Date.now();
-  const dateTimeAgo = moment(new Date(created_at)).fromNow();
-  console.log(dateTimeAgo);
+  // const timestamp = Date.now();
+  // const dateTimeAgo = moment(new Date(created_at)).fromNow();
+  // console.log(dateTimeAgo);
 
   const handleReplyClick = () => {
     setReplyText(`@${name} `);
@@ -49,9 +49,8 @@ const CommentCard = ({
 
   const handleReplySubmit = () => {
     if (replyText.trim()) {
-      onAddReply(replyText);
-      setReplyText("");
-      setShowReplyBox(false);
+     onAddReply(replyText);
+     setReplyText("");
     }
   };
 
