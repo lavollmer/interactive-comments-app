@@ -23,6 +23,7 @@ function App() {
     setShowModal(false);
   };
 
+  // when a user on the CommentCard clicks reply - the Box will become visible
   const handleReplyClick = () => {
     setReplyBoxVisible(index);
   }
@@ -57,15 +58,19 @@ function App() {
     if (!newComments[commentIndex].replies) {
       newComments[commentIndex].replies = []; 
     }
-    //when a commentIndex and replyText are passed as arguments to the function we push on the new comment with the information below
+    //when a commentIndex and replyText are passed as arguments to the function we push on the new comment with the information below to object
     newComments[commentIndex].replies.push({
       text: replyText,
+      //new timestamp for the reply
       createdAt: new Date(),
+      //use currentuser username and avatar
       username: currentUser.username,
       avatar: currentUser.avatar,
     });
+    //take the newComments and run it through the setComments function
     setComments(newComments);
-    setReplyBoxVisible(null); // Hide reply box after submitting
+    //trun the ReplyBoxVisible to null
+    setReplyBoxVisible(null); 
   };
   return (
     <>
@@ -78,11 +83,11 @@ function App() {
               name="amyrobson"
               comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
               created_at={commentCreatedAt}
-              replies={[]} // Initialize replies array
-              currentUser={currentUser} // Pass current user information
-              onReplyClick={() => handleReplyClick(0)} // Pass reply handler
-              replyBoxVisible={replyBoxVisible === 0} // Pass reply box visibility
-              onAddReply={(replyText) => handleAddReply(0, replyText)} // Pass add reply handler
+              replies={[]} 
+              currentUser={currentUser} 
+              onReplyClick={() => handleReplyClick(0)} 
+              replyBoxVisible={replyBoxVisible === 0} 
+              onAddReply={(replyText) => handleAddReply(0, replyText)} 
             />
           </div>
           <div className="pt-8">
