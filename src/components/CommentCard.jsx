@@ -16,7 +16,6 @@ const CommentCard = ({
   replies,
   currentUser,
   onDelete,
-  replyBoxVisible,
   onAddReply,
 }) => {
   //creating a variable to hold the like count
@@ -39,10 +38,6 @@ const CommentCard = ({
     console.log(likes);
   };
 
-  // const timestamp = Date.now();
-  // const dateTimeAgo = moment(new Date(created_at)).fromNow();
-  // console.log(dateTimeAgo);
-
   const handleReplyClick = () => {
     setReplyText(`@${name} `);
     setShowReplyBox(true);
@@ -63,7 +58,7 @@ const CommentCard = ({
   return (
     <div className="flex flex-row justify-center bg-white rounded-lg w-full mt-8">
       {/* increment and decrement button */}
-      <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
+      <div className="flex flex-col items-center justify-center rounded-lg bg-very-light-gray m-4 p-4">
         {/* increase likes with onclick button */}
         <button title="increase" onClick={increaseLikes}>
           <img
