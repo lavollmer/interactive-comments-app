@@ -6,6 +6,11 @@ import IconReply from "../assets/icon-reply.svg";
 import ReplyCard from "./ReplyCard";
 import IconDelete from "../assets/icon-delete.svg";
 import IconEdit from "../assets/icon-edit.svg";
+import DeleteModal from "../components/Delete";
+
+const Modal = ({ onClose }) => {
+  return <div>Delete Modal</div>;
+};
 
 const CommentCard = ({
   AvatarImage,
@@ -21,6 +26,8 @@ const CommentCard = ({
   //creating a variable to hold the like count
   const [likes, setLikes] = useState(0);
 
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
+
   //variable to hold reply and reply box visibility
   const [replyText, setReplyText] = useState("");
   // const [showReplyBox, setShowReplyBox] = useState(null);
@@ -30,6 +37,10 @@ const CommentCard = ({
   const increaseLikes = () => {
     setLikes(likes + 1);
     console.log(likes);
+  };
+
+  const toggleModal = () => {
+    setIsModalDeleteOpen(!isModalDeleteOpen);
   };
 
   //decreasing likes
@@ -88,14 +99,15 @@ const CommentCard = ({
                 </p>
                 <button
                   className="flex flex-row pr-2 items-center text-red-500 font-bold"
-                  onClick={onDelete}
+                  onClick={toggleModal}
                 >
                   <img src={IconDelete} alt="Delete Icon" className="h-4 w-4" />
                   Delete
                 </button>
                 <button className="flex flex-row items-center justify-center text-moderate-blue font-bold">
-                <img src={IconEdit} alt="Reply Icon" className="pr-2" />
-                Edit</button>
+                  <img src={IconEdit} alt="Reply Icon" className="pr-2" />
+                  Edit
+                </button>
               </div>
             )}
             <button
@@ -142,6 +154,7 @@ const CommentCard = ({
                 createdAt={reply.createdAt}
               />
             ))}
+          {isModalDeleteOpen && <Modal onClose={toggleModal} />}
         </div>
       </div>
     </div>
