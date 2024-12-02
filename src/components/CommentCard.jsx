@@ -5,6 +5,7 @@ import IconMinus from "../assets/icon-minus.svg";
 import IconReply from "../assets/icon-reply.svg";
 import ReplyCard from "./ReplyCard";
 import IconDelete from "../assets/icon-delete.svg";
+import IconEdit from "../assets/icon-edit.svg";
 
 const CommentCard = ({
   AvatarImage,
@@ -97,6 +98,9 @@ const CommentCard = ({
                   <img src={IconDelete} alt="Delete Icon" className="h-4 w-4" />
                   Delete
                 </button>
+                <button className="flex flex-row items-center justify-center text-moderate-blue font-bold">
+                <img src={IconEdit} alt="Reply Icon" className="pr-2" />
+                Edit</button>
               </div>
             )}
             <button
