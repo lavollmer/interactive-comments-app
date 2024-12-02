@@ -19,7 +19,7 @@ const DeleteModal = ({ onClose }) => {
             comment and can't be undone.
           </p>
         </div>
-        <div className="flex flex-row justify-center items-center space-x-4 modal-close">
+        <div className="flex flex-row justify-center items-center space-x-4">
           <div>
             <button
               className="bg-grayish-blue rounded-lg p-4"
@@ -179,7 +179,9 @@ const CommentCard = ({
                 createdAt={reply.createdAt}
               />
             ))}
-          {isModalDeleteOpen && <DeleteModal onClose={toggleModal} />}
+          {/* {isModalDeleteOpen && (
+            <DeleteModal onClose={toggleModal} onClick={handleDeleteComment} />
+          )} */}
         </div>
       </div>
     </div>

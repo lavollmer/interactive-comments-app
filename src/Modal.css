@@ -17,7 +17,7 @@
     position: relative;
   }
   
-  .modal-close {
+  /* .modal-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -25,4 +25,4 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-  }
+  } */

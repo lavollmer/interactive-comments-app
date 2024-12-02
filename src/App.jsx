@@ -6,12 +6,11 @@ import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
 import UserAvatar from "./assets/image-juliusomo.png";
 import IconDelete from "../src/assets/icon-delete.svg";
+import DeleteModal from "./components/DeleteModal";
 
 function App() {
-  const [replyBoxVisible, setReplyBoxVisible] = useState(null);
-  const commentCreatedAt = new Date();
-
-  // initializes a state variable called comments with an array of objects
+  const [showModal, setShowModal] = useState(false);
+  const [commentToDelete, setCommentToDelete] = useState(null);
   const [comments, setComments] = useState([
     {
       id: 0,
@@ -34,9 +33,27 @@ function App() {
       replies: [],
     },
   ]);
+  const [replyBoxVisible, setReplyBoxVisible] = useState(null);
 
-  // when a user on the CommentCard clicks reply - the Box will become visible
-  const handleReplyClick = () => {
+
+  const handleDeleteClick = (index) => {
+    setCommentToDelete(index);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setCommentToDelete(null);
+  };
+
+  const handleConfirmDelete = () => {
+    if (commentToDelete !== null) {
+      setComments(comments.filter((_, i) => i !== commentToDelete));
+      handleCloseModal();
+    }
+  };
+
+  const handleReplyClick = (index) => {
     setReplyBoxVisible(index);
   };
 
@@ -49,38 +66,29 @@ function App() {
     setComments([
       ...comments,
       {
-        text: commentText,
-        createdAt: new Date(),
+        id: comments.length,
         username: currentUser.username,
         avatar: currentUser.avatar,
+        avatarDesc: "User Avatar",
+        comment: commentText,
+        created_at: new Date().toISOString(),
         replies: [],
       },
     ]);
   };
 
-  const handleDeleteComment = (index) => {
-    setComments(comments.filter((_, i) => i !== index));
-  };
-
   const handleAddReply = (commentIndex, replyText) => {
-    //creating a new variable newComments with a copy of the comments array
     const newComments = [...comments];
-    // if the commentIndex in newComments object does not have replies, create a new empty array
     if (!newComments[commentIndex].replies) {
       newComments[commentIndex].replies = [];
     }
-    //when a commentIndex and replyText are passed as arguments to the function we push on the new comment with the information below to object
     newComments[commentIndex].replies.push({
       text: replyText,
-      //new timestamp for the reply
-      createdAt: new Date(),
-      //use currentuser username and avatar
+      created_at: new Date().toISOString(),
       username: currentUser.username,
       avatar: currentUser.avatar,
     });
-    //take the newComments and run it through the setComments function
     setComments(newComments);
-    //trun the ReplyBoxVisible to null
     setReplyBoxVisible(null);
   };
 
@@ -98,7 +106,7 @@ function App() {
               created_at={comment.createdAt}
               replies={comment.replies || []} // Pass replies array, ensure it's not undefined
               currentUser={currentUser} // Pass current user information
-              onDelete={() => handleDeleteComment(index)} // Pass delete handler
+              onDelete={() => handleDeleteClick(index)} // Pass delete handler
               onReplyClick={() => handleReplyClick(index)} // Pass reply handler
               replyBoxVisible={replyBoxVisible === index} // Pass reply box visibility
               onAddReply={(replyText) => handleAddReply(index, replyText)} // Pass add reply handler
@@ -108,6 +116,9 @@ function App() {
         <div className="flex flex-col items-center justify-center pt-8">
           <UserComment onAddComment={handleAddComment} />
         </div>
+        {showModal && (
+          <DeleteModal onClose={handleCloseModal} onConfirm={handleConfirmDelete} />
+        )}
       </div>
     </>
   );
