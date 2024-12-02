@@ -14,7 +14,29 @@ function App() {
   const [replyBoxVisible, setReplyBoxVisible] = useState(null);
   const commentCreatedAt = new Date();
 
-  const [comments, setComments] = useState([]);
+  // initializes a state variable called comments with an array of objects
+  const [comments, setComments] = useState([
+    {
+      id: 0,
+      username: "amyrobson",
+      avatar: Avatar,
+      avatarDesc: "User Avatar",
+      text:
+        "Impressive! Though it seems the drag feature could be improved...",
+      created_at: "2024-12-02T00:00:00Z",
+      replies: [],
+    },
+    {
+      id: 1,
+      username: "maxblagun",
+      avatar: AvatarMax,
+      avatarDesc: "User Avatar",
+      text:
+        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      created_at: "2024-12-02T00:00:00Z",
+      replies: [],
+    },
+  ]);
 
   const handleDeleteClick = () => {
     setShowModal(true);
@@ -77,18 +99,6 @@ function App() {
     <>
       <div className="background bg-very-light-gray p-6">
         <div className="flex flex-col items-center justify-center">
-          <CommentCard
-            AvatarImage={Avatar}
-            AvatarDesc="User Avatar"
-            name="amyrobson"
-            comment="Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
-            created_at={commentCreatedAt}
-            replies={[]}
-            currentUser={currentUser}
-            onReplyClick={() => handleReplyClick(0)}
-            replyBoxVisible={replyBoxVisible === 0}
-            onAddReply={(replyText) => handleAddReply(0, replyText)}
-          />
           {comments.map((comment, index) => (
             <CommentCard
               key={index}

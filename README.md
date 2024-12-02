@@ -60,6 +60,8 @@ The final pieces of the project involved styling it based on the design assets. 
 
 I came back to this project after several weeks. The issues that needed to be resolved involved the responsive design and the reply to comment section. I started with understanding the reply button to the comment. It seems that the state management is not working properly as it currently replies to one comment and shows up in another section. The like counter still works correctly. The first thing I worked on was refractoring code - there seemed to be a lot of code that was not being used or unnecessary. Additionally, I used the Google Chrome Dev Tools to determine where the tailwind styling was incorrect for the reply box. It seemed to have an additional div related to the overall box therefore making it smaller on screen. I was able to remove that and as a result the replies box is uniform with the original comments - which was great! The next step, I realized I did not have the "you" tag next to the user who was the end user. I included that in the CommentCard for the user specific.
 
+Isssues that I'm noticing about my application after coming back to it. The reply button is linked to all comments, the end user doesn't have a unique view on the comments (i.e. being able to edit his/her own comment), the like comments formatting needs to be centered, the information that is already set to start with should be written in the code in the comments.
+
 ## Built with
 
 - [React](https://reactjs.org/) - JS library
