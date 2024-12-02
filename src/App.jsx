@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState } from "react";
 import CommentCard from "./components/CommentCard";
 import UserComment from "./components/UserComment";
-import Delete from "./components/Delete";
 import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
 import UserAvatar from "./assets/image-juliusomo.png";

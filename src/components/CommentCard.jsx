@@ -6,8 +6,9 @@ import IconReply from "../assets/icon-reply.svg";
 import ReplyCard from "./ReplyCard";
 import IconDelete from "../assets/icon-delete.svg";
 import IconEdit from "../assets/icon-edit.svg";
+import "../Modal.css";
 
-const Modal = ({ onClose }) => {
+const DeleteModal = ({ onClose }) => {
   return (
     <div>
       <div className="flex flex-col items-center font-rubik bg-white rounded-lg modal-overlay">
@@ -178,7 +179,7 @@ const CommentCard = ({
                 createdAt={reply.createdAt}
               />
             ))}
-          {isModalDeleteOpen && <Modal onClose={toggleModal} />}
+          {isModalDeleteOpen && <DeleteModal onClose={toggleModal} />}
         </div>
       </div>
     </div>
