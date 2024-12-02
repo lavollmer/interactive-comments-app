@@ -7,10 +7,8 @@ import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
 import UserAvatar from "./assets/image-juliusomo.png";
 import IconDelete from "../src/assets/icon-delete.svg";
-import ReplyCard from "./components/ReplyCard";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
   const [replyBoxVisible, setReplyBoxVisible] = useState(null);
   const commentCreatedAt = new Date();
 
@@ -37,14 +35,6 @@ function App() {
       replies: [],
     },
   ]);
-
-  const handleDeleteClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
 
   // when a user on the CommentCard clicks reply - the Box will become visible
   const handleReplyClick = () => {
