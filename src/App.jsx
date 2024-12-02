@@ -11,9 +11,10 @@ import ReplyCard from "./components/ReplyCard";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [comments, setComments] = useState([]);
   const [replyBoxVisible, setReplyBoxVisible] = useState(null); 
   const commentCreatedAt = new Date();
+
+  const [comments, setComments] = useState([]);
 
   const handleDeleteClick = () => {
     setShowModal(true);
@@ -72,11 +73,12 @@ function App() {
     //trun the ReplyBoxVisible to null
     setReplyBoxVisible(null); 
   };
+
+
   return (
     <>
       <div className="background bg-very-light-gray p-6">
         <div className="flex flex-col items-center justify-center pt-8">
-        <div>
             <CommentCard
               AvatarImage={Avatar}
               AvatarDesc="User Avatar"
@@ -89,8 +91,6 @@ function App() {
               replyBoxVisible={replyBoxVisible === 0} 
               onAddReply={(replyText) => handleAddReply(0, replyText)} 
             />
-          </div>
-          <div className="pt-8">
             {comments.map((comment, index) => (
               <CommentCard
                 key={index}
@@ -107,12 +107,11 @@ function App() {
                 onAddReply={(replyText) => handleAddReply(index, replyText)} // Pass add reply handler
               />
             ))}
-          </div>
+
           </div>
         <div className="flex flex-col pt-8 p-6 w-full">
           <UserComment onAddComment={handleAddComment} />
         </div>
-
         <div>
           <DeleteButton show={showModal} onClose={handleCloseModal}>
             <h2>Are you sure you want to delete this comment?</h2>

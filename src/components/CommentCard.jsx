@@ -47,8 +47,11 @@ const CommentCard = ({
     setShowReplyBox(true);
   };
 
+  // Reply button for reply section
   const handleReplySubmit = () => {
+    // checks that the reply is not empty
     if (replyText.trim()) {
+      // calls the onAddReply function and passes the reply text
      onAddReply(replyText);
      setReplyText("");
     }
@@ -105,6 +108,7 @@ const CommentCard = ({
               {comment}
             </p>
           </div>
+          {/* When the user selects the reply button - the reply box displays */}
           {showReplyBox && (
             <div className="reply-box">
               <textarea
@@ -113,6 +117,7 @@ const CommentCard = ({
                 placeholder="Write your reply..."
                 className="w-full p-2 border rounded"
               />
+              {/* Reply button */}
               <button
                 onClick={handleReplySubmit}
                 className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"

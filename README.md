@@ -58,6 +58,8 @@ After working through some formatting issues, I decided to work on the delete bu
 
 The final pieces of the project involved styling it based on the design assets. I started with working on the user comment section as the input box would not stretch the width of the screen. I played around with different CSS styling - checking the App.jsx container, the User Comment component container and then each individual div. I learned that the parent container needed to be set at w-full, while the containers of the avatar image and form needed to set to flex-grow and flex-shrink-0 in order for the form to grow as needed.
 
+I came back to this project after several weeks. The issues that needed to be resolved involved the responsive design and the reply to comment section. I started with understanding the reply button to the comment. It seems that the state management is not working properly as it currently replies to one comment and shows up in another section. The like counter still works correctly. 
+
 ## Built with
 
 - [React](https://reactjs.org/) - JS library

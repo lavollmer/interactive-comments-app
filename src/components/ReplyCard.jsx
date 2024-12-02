@@ -63,6 +63,7 @@ const ReplyCard = ({
           <img src={IconMinus} alt="Decrement Icon" className=" font-bold" />
         </button>
       </div>
+      <div>
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center justify-center text-md space-x-4">
           <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
@@ -99,6 +100,7 @@ const ReplyCard = ({
             </button>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
