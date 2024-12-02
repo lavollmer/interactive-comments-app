@@ -60,8 +60,8 @@ const CommentCard = ({
   console.log(replies);
 
   return (
-    <div className="flex flex-row font-rubik pt-8">
-      <div className="flex flex-row bg-white rounded-lg p-4 w-full">
+    <div className="flex flex-col items-center justify-center pt-8">
+      <div className="flex flex-row justify-center bg-white rounded-lg w-full">
         {/* increment and decrement button */}
         <div className="flex flex-col items-center rounded-lg bg-very-light-gray m-4 p-4">
           {/* increase likes with onclick button */}
