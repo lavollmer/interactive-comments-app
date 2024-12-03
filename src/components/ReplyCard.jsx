@@ -64,43 +64,43 @@ const ReplyCard = ({
         </button>
       </div>
       <div>
-      <div className="flex flex-row items-center justify-between">
-        <div className="flex flex-row items-center justify-center text-md space-x-4">
-          <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
-          <h1 className="font-bold text-black">{username}</h1>
-          <p>{moment(createdAt).fromNow()}</p>
-        </div>
-      </div>
-      <div>
-        <p className="text-lg text-grayish-blue font-semi-bold pr-2">
-          {replyText}
-        </p>
-      </div>
-      <div>
-        <button
-          className="flex flex-row items-center font-bold text-moderate-blue text-lg"
-          onClick={handleReplyClick}
-        >
-          <img src={IconReply} alt="Reply Icon" className="pr-2" />
-          Reply
-        </button>
-        {showReplyBox && (
-          <div className="reply-box">
-            <textarea
-              value={replyTextState} // Use the renamed state variable
-              onChange={(e) => setReplyTextState(e.target.value)}
-              placeholder="Write your reply..."
-              className="w-full p-2 border rounded"
-            />
-            <button
-              onClick={handleReplySubmit}
-              className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"
-            >
-              Submit Reply
-            </button>
+        <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-center text-md space-x-4">
+            <img src={AvatarImage} alt={AvatarDesc} className="h-8 w-8" />
+            <h1 className="font-bold text-black">{username}</h1>
+            <p>{moment(createdAt).fromNow()}</p>
           </div>
-        )}
-      </div>
+        </div>
+        <div>
+          <p className="text-lg text-grayish-blue font-semi-bold pr-2">
+            {replyText}
+          </p>
+        </div>
+        <div>
+          <button
+            className="flex flex-row items-center font-bold text-moderate-blue text-lg"
+            onClick={handleReplyClick}
+          >
+            <img src={IconReply} alt="Reply Icon" className="pr-2" />
+            Reply
+          </button>
+          {showReplyBox && (
+            <div className="reply-box">
+              <textarea
+                value={replyTextState} // Use the renamed state variable
+                onChange={(e) => setReplyTextState(e.target.value)}
+                placeholder="Write your reply..."
+                className="w-full p-2 border rounded"
+              />
+              <button
+                onClick={handleReplySubmit}
+                className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"
+              >
+                Submit Reply
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

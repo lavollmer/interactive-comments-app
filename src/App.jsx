@@ -17,7 +17,7 @@ function App() {
       username: "amyrobson",
       avatar: Avatar,
       avatarDesc: "User Avatar",
-      text:
+      commentext:
         "Impressive! Though it seems the drag feature could be improved...",
       created_at: "2024-12-02T00:00:00Z",
       replies: [],
