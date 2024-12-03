@@ -5,7 +5,6 @@ import UserComment from "./components/UserComment";
 import Avatar from "./assets/image-amyrobson.png";
 import AvatarMax from "./assets/image-maxblagun.png";
 import UserAvatar from "./assets/image-juliusomo.png";
-import IconDelete from "../src/assets/icon-delete.svg";
 import DeleteModal from "./components/DeleteModal";
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
       username: "amyrobson",
       avatar: Avatar,
       avatarDesc: "User Avatar",
-      commentext:
+      text:
         "Impressive! Though it seems the drag feature could be improved...",
       created_at: "2024-12-02T00:00:00Z",
       replies: [],
@@ -70,7 +69,7 @@ function App() {
         username: currentUser.username,
         avatar: currentUser.avatar,
         avatarDesc: "User Avatar",
-        comment: commentText,
+        comment: currentUser.text,
         created_at: new Date().toISOString(),
         replies: [],
       },

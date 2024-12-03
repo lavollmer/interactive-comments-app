@@ -1,13 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import Avatar from "../assets/image-juliusomo.png";
 
 const UserComment = ({ onAddComment }) => {
-  function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    const value = data.get("commentUser");
-    onAddComment(value);
-    event.target.reset(); // Clear the input field after submission
+  const [commentText, setCommentText] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (commentText.trim()) {
+      onAddComment(commentText);
+      setCommentText(""); // Clear the input field after submitting
+    }
   }
 
   return (

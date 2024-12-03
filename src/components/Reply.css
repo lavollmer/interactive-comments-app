@@ -15,7 +15,7 @@
   }
   
   .reply-box button {
-    background-color: #5352ed;
+    background-color: moderate-blue;
     color: white;
     padding: 0.5rem 1rem;
     border: none;
@@ -24,5 +24,5 @@
   }
   
   .reply-box button:hover {
-    background-color: #3742fa;
+    background-color: moderate-blue-dark;
   }
