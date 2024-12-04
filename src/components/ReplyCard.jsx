@@ -93,10 +93,10 @@ const ReplyCard = ({
                 className="w-full p-2 border rounded"
               />
               <button
-                onClick={handleReplySubmit}
-                className="flex flex-row items-center justify-center text-lg bg-moderate-blue rounded-lg px-4 py-4 text-white font-bold font-rubik"
+                className="flex flex-row items-center font-bold text-moderate-blue text-lg"
+                onClick={handleReplyClick}
               >
-                Submit Reply
+                Reply
               </button>
             </div>
           )}
