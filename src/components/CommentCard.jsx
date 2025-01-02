@@ -179,9 +179,9 @@ const CommentCard = ({
                 createdAt={reply.createdAt}
               />
             ))}
-          {/* {isModalDeleteOpen && (
+          {isModalDeleteOpen && (
             <DeleteModal onClose={toggleModal} onClick={handleDeleteComment} />
-          )} */}
+          )}
         </div>
       </div>
     </div>

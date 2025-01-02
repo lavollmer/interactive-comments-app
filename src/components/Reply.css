@@ -26,3 +26,8 @@
   .reply-box button:hover {
     background-color: moderate-blue-dark;
   }
+
+  .username{
+    color: moderate-blue;
+    font-weight: bold;
+  }
